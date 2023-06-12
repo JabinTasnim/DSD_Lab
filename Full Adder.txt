@@ -1,0 +1,24 @@
+// DSCH 2.7a
+// 4/2/2023 1:11:27 PM
+// C:\Users\ASUS\Downloads\Export dsch2\Full Adder.sch
+
+module Full Adder( X,Y,Cin,F,Cout);
+ input X,Y,Cin;
+ output F,Cout;
+ xor #(23) xor2(w3,X,Y);
+ and #(16) and2(w4,Y,X);
+ xor #(16) xor2(F,w3,Cin);
+ and #(16) and2(w7,Cin,w3);
+ or #(16) or2(Cout,w7,w4);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 X=~X;
+#2000 Y=~Y;
+#4000 Cin=~Cin;
+
+// Simulation parameters
+// X CLK 10 10
+// Y CLK 20 20
+// Cin CLK 40 40

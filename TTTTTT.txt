@@ -1,0 +1,21 @@
+// DSCH 2.7a
+// 3/26/2023 11:09:18 AM
+// C:\Users\ASUS\Downloads\Export dsch2\TTTTTT.sch
+
+module TTTTTT( T,clk1,q',Q);
+ input T,clk1;
+ output q',Q;
+ nand #(13) nand3(w4,q',T,clk1);
+ nand #(13) nand3(w6,clk1,T,Q);
+ nand #(27) nand2(Q,q',w4);
+ nand #(27) nand2(q',w6,Q);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 T=~T;
+#1000 clk1=~clk1;
+
+// Simulation parameters
+// T CLK 10 10
+// clk1 CLK 10.00 10.00

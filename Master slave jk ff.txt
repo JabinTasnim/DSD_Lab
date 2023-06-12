@@ -1,0 +1,28 @@
+// DSCH 2.7a
+// 3/26/2023 10:51:52 AM
+// C:\Users\ASUS\Downloads\Export dsch2\Master slave jk ff.sch
+
+module Master slave jk ff( J,K,clk1,Q,Q');
+ input J,K,clk1;
+ output Q,Q';
+ nand #(1) nand3(w4,J,Q',clk1);
+ nand #(1) nand3(w7,clk1,Q,K);
+ nand #(1) nand2(w9,w8,w4);
+ nand #(1) nand2(w8,w7,w9);
+ nand #(1) nand2(w11,w10,w9);
+ nand #(1) nand2(w12,w8,w10);
+ nand #(1) nand2(Q,Q',w11);
+ nand #(1) nand2(Q',w12,Q);
+ not #(1) inv(w10,clk1);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#10 J=~J;
+#20 K=~K;
+#10 clk1=~clk1;
+
+// Simulation parameters
+// J CLK 10 10
+// K CLK 20 20
+// clk1 CLK 10.00 10.00

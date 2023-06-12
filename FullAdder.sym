@@ -1,0 +1,35 @@
+DSCH 2.7a
+VERSION 4/2/2023 1:11:43 PM
+BB(0,0,40,40)
+SYM  #Full
+BB(0,0,40,40)
+TITLE 10 -2  #Full Adder
+MODEL 6000
+PROP                                                                                                                                                                                                           
+REC(5,5,30,30,r)
+VIS 5
+PIN(0,20,0.000,0.000)X
+PIN(0,10,0.000,0.000)Y
+PIN(0,30,0.000,0.000)Cin
+PIN(40,10,2.000,1.000)F
+PIN(40,20,2.000,1.000)Cout
+LIG(0,20,5,20)
+LIG(0,10,5,10)
+LIG(0,30,5,30)
+LIG(35,10,40,10)
+LIG(35,20,40,20)
+LIG(5,5,5,35)
+LIG(5,5,35,5)
+LIG(35,5,35,35)
+LIG(35,35,5,35)
+VLG  module Full Adder( X,Y,Cin,F,Cout);
+VLG   input X,Y,Cin;
+VLG   output F,Cout;
+VLG   xor #(23) xor2(w3,X,Y);
+VLG   and #(16) and2(w4,Y,X);
+VLG   xor #(16) xor2(F,w3,Cin);
+VLG   and #(16) and2(w7,Cin,w3);
+VLG   or #(16) or2(Cout,w7,w4);
+VLG  endmodule
+FSYM
+FFIG C:\Users\ASUS\Downloads\Export dsch2\FullAdder.sym

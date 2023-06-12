@@ -1,0 +1,28 @@
+USER SYMBOL by DSCH 2.7a
+DATE 3/26/2023 11:09:18 AM
+SYM  #TTTTTT
+BB(0,0,40,30)
+TITLE 10 -2  #TTTTTT
+MODEL 6000
+REC(5,5,30,20)
+PIN(0,10,0.00,0.00)T
+PIN(0,20,0.00,0.00)clk1
+PIN(40,10,2.00,1.00)q'
+PIN(40,20,2.00,1.00)Q
+LIG(0,10,5,10)
+LIG(0,20,5,20)
+LIG(35,10,40,10)
+LIG(35,20,40,20)
+LIG(5,5,5,25)
+LIG(5,5,35,5)
+LIG(35,5,35,25)
+LIG(35,25,5,25)
+VLG module TTTTTT( T,clk1,q',Q);
+VLG  input T,clk1;
+VLG  output q',Q;
+VLG  nand #(13) nand3(w4,q',T,clk1);
+VLG  nand #(13) nand3(w6,clk1,T,Q);
+VLG  nand #(27) nand2(Q,q',w4);
+VLG  nand #(27) nand2(q',w6,Q);
+VLG endmodule
+FSYM

@@ -1,0 +1,10 @@
+// DSCH 2.7a
+// 7/7/2017 4:32:14 PM
+// example
+
+module example( );
+endmodule
+
+// Simulation parameters in Verilog Format
+
+// Simulation parameters

@@ -1,0 +1,22 @@
+// DSCH 2.7a
+// 2/7/2023 9:01:24 PM
+// C:\Users\ASUS\Downloads\Export dsch2\DFF.sch
+
+module DFF( in1,clk1,Q,Q');
+ input in1,clk1;
+ output Q,Q';
+ nand #(13) nand2(w3,clk1,in1);
+ nand #(13) nand2(w5,w4,clk1);
+ nand #(20) nand2(Q,Q',w3);
+ nand #(20) nand2(Q',w5,Q);
+ not #(10) inv(w4,in1);
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 in1=~in1;
+#1000 clk1=~clk1;
+
+// Simulation parameters
+// in1 CLK 10 10
+// clk1 CLK 10.00 10.00
